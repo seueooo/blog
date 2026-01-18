@@ -15,6 +15,10 @@ html[data-theme="light"] {
   --card: #f9fafb;
   --card-muted: #f3f4f6;
 
+  /* Mouse tracker */
+  --spotlight-color: rgba(3, 105, 161, 0.08);
+  --cursor-color: #282728;
+
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -36,6 +40,10 @@ html[data-theme="dark"] {
   --border: #3f3f46;
   --card: #27272a;
   --card-muted: #1f1f22;
+
+  /* Mouse tracker */
+  --spotlight-color: rgba(56, 189, 248, 0.06);
+  --cursor-color: #a1a1aa;
 
   --sh-class: #4c97f8;
   --sh-identifier: #e4e4e7;
@@ -350,4 +358,20 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+/* ===== Custom Cursor ===== */
+@media (pointer: fine) {
+  html {
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    cursor: none;
+  }
 }
