@@ -82,13 +82,13 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
+      <h1 className="title font-semibold text-2xl tracking-tighter" style={{ color: 'var(--foreground)' }}>
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+      <div className="flex justify-between items-center mt-3 mb-8">
+        <time className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
           {formatDate(post.metadata.publishedAt)}
-        </p>
+        </time>
       </div>
       <article className="prose">
         <CustomMDX source={post.content} />

@@ -72,10 +72,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+      <body className="antialiased max-w-2xl mx-4 mt-10 lg:mx-auto">
+        <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0">
           <Navbar />
-          {children}
+          <div className="flex-1">
+            {children}
+          </div>
           <Footer />
           <Analytics />
           <SpeedInsights />

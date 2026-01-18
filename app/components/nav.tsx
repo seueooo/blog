@@ -3,40 +3,39 @@ import { ThemeToggle } from './theme-toggle'
 
 const navItems = {
   '/': {
-    name: 'home',
+    name: 'Home',
   },
   '/blog': {
-    name: 'blog',
+    name: 'Posts',
   },
   '/about': {
-    name: 'about',
+    name: 'About',
   },
 }
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-center justify-between relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
+    <header className="mb-12 border-b pb-6" style={{ borderColor: 'var(--border)' }}>
+      <nav
+        className="flex flex-row items-center justify-between"
+        id="nav"
+      >
+        <ul className="flex flex-row gap-1 list-none p-0 m-0">
+          {Object.entries(navItems).map(([path, { name }]) => {
+            return (
+              <li key={path}>
                 <Link
-                  key={path}
                   href={path}
-                  className="transition-all flex align-middle relative py-1 px-2 m-1 hover:opacity-70"
+                  className="px-3 py-1.5 text-sm font-medium no-underline rounded-md transition-colors hover:bg-[var(--card-muted)]"
                 >
                   {name}
                 </Link>
-              )
-            })}
-          </div>
-          <ThemeToggle />
-        </nav>
-      </div>
-    </aside>
+              </li>
+            )
+          })}
+        </ul>
+        <ThemeToggle />
+      </nav>
+    </header>
   )
 }

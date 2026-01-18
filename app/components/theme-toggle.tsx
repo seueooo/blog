@@ -28,8 +28,9 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 hover:opacity-70 rounded-lg transition-colors"
+      className="p-2 rounded-md transition-colors hover:bg-[var(--card-muted)]"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      style={{ color: 'var(--foreground)' }}
     >
       {theme === 'light' ? (
         <svg
