@@ -1,11 +1,15 @@
 @import 'tailwindcss';
 
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
-}
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-:root {
+:root,
+html[data-theme="light"] {
+  --background: #fdfdfd;
+  --foreground: #282728;
+  --accent: #006cac;
+  --muted: #e6e6e6;
+  --border: #ece9e9;
+
   --sh-class: #2d5e9d;
   --sh-identifier: #354150;
   --sh-sign: #8996a3;
@@ -17,25 +21,221 @@
   --sh-entity: #e25a1c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-  html {
-    color-scheme: dark;
-  }
+html[data-theme="dark"] {
+  --background: #212737;
+  --foreground: #eaedf3;
+  --accent: #ff6b01;
+  --muted: #343f60;
+  --border: #ab4b08;
+
+  --sh-class: #4c97f8;
+  --sh-identifier: white;
+  --sh-keyword: #f47067;
+  --sh-string: #0fa295;
+
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--border);
+  outline-color: var(--accent);
+  scrollbar-width: auto;
+  scrollbar-color: var(--muted) transparent;
 }
 
 html {
+  @apply overflow-y-scroll scroll-smooth;
   min-width: 360px;
 }
 
+body {
+  @apply flex min-h-svh flex-col antialiased;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-ibm-plex-mono), monospace;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+a:focus-visible,
+button:focus-visible {
+  @apply outline-offset-1 outline-2 outline-dashed no-underline;
+  outline-color: var(--accent);
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+.active-nav {
+  @apply underline decoration-wavy decoration-2 underline-offset-8;
+}
+
+:target {
+  scroll-margin-block: 1rem;
+}
+
+/* ===== Typography Styles ===== */
+.prose {
+  color: var(--foreground);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose th {
+  @apply mb-3;
+  color: var(--foreground);
+}
+
+.prose h1 {
+  @apply text-4xl font-medium tracking-tight mt-6;
+}
+
+.prose h2 {
+  @apply text-xl font-medium tracking-tight mt-6;
+}
+
+.prose h3 {
+  @apply text-xl font-medium tracking-tight mt-6 italic;
+}
+
+.prose h4 {
+  @apply text-lg font-medium tracking-tight mt-6;
+}
+
+.prose p,
+.prose strong,
+.prose ol,
+.prose ul,
+.prose figcaption,
+.prose table,
+.prose code {
+  color: var(--foreground);
+}
+
+.prose p {
+  @apply my-4;
+}
+
+.prose strong {
+  @apply font-medium;
+}
+
+.prose a {
+  @apply underline transition-all underline-offset-4;
+  text-decoration-style: dashed;
+  color: var(--foreground);
+  overflow-wrap: break-word;
+}
+
+.prose a:hover {
+  color: var(--accent);
+}
+
+.prose a:focus-visible {
+  @apply no-underline;
+}
+
+.prose ul {
+  @apply list-disc pl-6 overflow-x-clip;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose hr {
+  border-color: var(--border);
+}
+
+.prose img {
+  @apply mx-auto border;
+  border-color: var(--border);
+}
+
+.prose figcaption {
+  @apply opacity-75;
+}
+
+.prose table th,
+.prose table td {
+  @apply border p-2;
+  border-color: var(--border);
+}
+
+.prose table th {
+  @apply py-1.5;
+}
+
+.prose code {
+  @apply rounded px-1 py-0.5;
+  background-color: color-mix(in srgb, var(--muted) 75%, transparent);
+  overflow-wrap: break-word;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+.prose pre {
+  @apply rounded-lg overflow-x-auto border py-2 px-3 text-sm;
+  background-color: color-mix(in srgb, var(--muted) 30%, transparent);
+  border-color: var(--border);
+}
+
+.prose pre code {
+  @apply p-0 rounded-none;
+  background-color: transparent;
+  line-height: 1.5;
+}
+
+.prose pre:focus-visible {
+  @apply border-transparent outline-2 outline-dashed;
+  outline-color: var(--accent);
+}
+
+.prose code span {
+  @apply font-medium;
+}
+
+.prose blockquote {
+  border-left-color: color-mix(in srgb, var(--accent) 80%, transparent);
+  overflow-wrap: break-word;
+  @apply opacity-80;
+}
+
+.prose details {
+  @apply inline-block cursor-pointer select-none;
+  color: var(--foreground);
+}
+
+.prose details p {
+  @apply hidden;
+}
+
+.prose details ul {
+  @apply !my-0;
+}
+
+.prose summary:focus-visible {
+  @apply no-underline outline-2 outline-offset-1 outline-dashed;
+  outline-color: var(--accent);
+}
+
+/* Anchor links */
 .prose .anchor {
   @apply absolute invisible no-underline;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -47,12 +247,8 @@ html {
   @apply visible;
 }
 
-.prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
-}
-
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  color: var(--muted);
   content: '#';
 }
 
@@ -60,63 +256,7 @@ html {
   @apply visible;
 }
 
-.prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
-}
-
-.prose code {
-  @apply px-1 py-0.5 rounded-lg;
-}
-
-.prose pre code {
-  @apply p-0;
-  border: initial;
-  line-height: 1.5;
-}
-
-.prose code span {
-  @apply font-medium;
-}
-
-.prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
-}
-
-.prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
-}
-
-.prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose strong {
-  @apply font-medium;
-}
-
-.prose ul {
-  @apply list-disc pl-6;
-}
-
-.prose ol {
-  @apply list-decimal pl-6;
-}
-
 .prose > :first-child {
-  /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
 }
