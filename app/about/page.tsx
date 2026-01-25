@@ -143,14 +143,7 @@ export default function AboutPage() {
         About.
       </h1>
 
-      <p
-        className="leading-relaxed mb-10"
-        style={{ color: 'var(--muted-foreground)' }}
-      >
-        Enjoying making high-impact visuals work through clean logic.
-
-Focusing on delivering experiences that feel natural and intuitive.
-      </p>
+     
 
       {/* Experience Section */}
       <div className="mb-12">
