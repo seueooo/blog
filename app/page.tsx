@@ -8,7 +8,9 @@ export default function Page() {
         Hanseo Kim.
       </h1>
       <TypewriterText
-        text="I'm a software engineer focused on architecting aesthetic visuals with a foundation in mathematical integrity. I strive to deliver natural, consistent experiences for both users and developers."
+        text='Enjoying making high-impact visuals work through clean math and logic.
+
+Focusing on delivering experiences that feel natural and intuitive.'
         className="mb-8 leading-relaxed"
         style={{ color: 'var(--muted-foreground)' }}
       />

@@ -11,15 +11,15 @@ import { MouseTracker } from './components/mouse-tracker'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Hanseo Kim\'s dev log',
+    template: '%s | Hanseo Kim\'s dev log',
   },
-  description: 'This is my portfolio.',
+  description: 'This is my dev log.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Hanseo Kim\'s dev log',
+    description: 'This is my dev log.',
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'Hanseo Kim\'s dev log',
     locale: 'en_US',
     type: 'website',
   },
