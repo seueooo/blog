@@ -23,7 +23,7 @@ const experiences: ExperienceItem[] = [
     organization: 'Toss (Viva Republica)',
     period: '2025.09 — now',
     location: 'Seoul',
-    description: 'Mobile Design Platform',
+    description: 'Design Platform (mobile)',
     logo: '/toss_logo.png',
   },
   {
