@@ -21,7 +21,7 @@ const experiences: ExperienceItem[] = [
     type: 'work',
     title: 'UX Engineer Assistant',
     organization: 'Toss (Viva Republica)',
-    period: '2025.09 — 2026.03',
+    period: '2025.09 — now',
     location: 'Seoul',
     description: 'Mobile Design Platform',
     logo: '/toss_logo.png',
