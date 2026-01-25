@@ -8,7 +8,7 @@ export default function Page() {
         Hanseo Kim.
       </h1>
       <TypewriterText
-        text='Enjoying making high-impact visuals work through clean math and logic.
+        text='Enjoying making high-impact visuals work through clean logic.
 
 Focusing on delivering experiences that feel natural and intuitive.'
         className="mb-8 leading-relaxed"

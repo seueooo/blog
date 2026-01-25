@@ -147,7 +147,7 @@ export default function AboutPage() {
         className="leading-relaxed mb-10"
         style={{ color: 'var(--muted-foreground)' }}
       >
-        Enjoying making high-impact visuals work through clean math and logic.
+        Enjoying making high-impact visuals work through clean logic.
 
 Focusing on delivering experiences that feel natural and intuitive.
       </p>
