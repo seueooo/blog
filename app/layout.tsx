@@ -4,6 +4,7 @@ import { IBM_Plex_Mono } from 'next/font/google'
 import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 import { MouseTracker } from './components/mouse-tracker'
@@ -84,6 +85,9 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
         </main>
+        {process.env.NODE_ENV === 'production' && (
+          <GoogleAnalytics gaId="G-VE4W2KKT3D" />
+        )}
       </body>
     </html>
   )
