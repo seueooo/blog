@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
@@ -113,7 +113,12 @@ button:not(:disabled),
 }
 
 /* ===== Section Headings ===== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--foreground);
   font-weight: 600;
   letter-spacing: -0.025em;
@@ -250,7 +255,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose code {
   @apply rounded px-1 py-0.5;
-  background-color: color-mix(in srgb, var(--muted) 75%, transparent);
+  background-color: color-mix(in srgb, var(--muted) 25%, white);
   overflow-wrap: break-word;
 }
 
@@ -261,7 +266,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose pre {
   @apply rounded-lg overflow-x-auto border py-2 px-3 text-sm;
-  background-color: color-mix(in srgb, var(--muted) 30%, transparent);
+  background-color: color-mix(in srgb, var(--muted) 12%, white);
   border-color: var(--border);
 }
 
@@ -320,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose .anchor:after {
   color: var(--muted);
-  content: '#';
+  content: "#";
 }
 
 .prose *:hover > .anchor {
@@ -342,8 +347,8 @@ pre {
 }
 
 /* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
+input[type="text"],
+input[type="email"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
